@@ -708,3 +708,28 @@ footer strong {
   cursor: pointer;
 }
 .kf-close-bottom:hover { background: var(--orange); }
+/* ── HERO LOGO ── */
+.hero-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.hero-top-row .hero-label {
+  color: var(--orange);
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+.hero-logo {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 12px;
+  flex-shrink: 0;
+  border: 2px solid rgba(232,104,48,0.4);
+}
