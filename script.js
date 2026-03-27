@@ -169,3 +169,18 @@ function toggleKeyFindings() {
     document.getElementById('technicalCard').scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 }
+// ── TOGGLE STORY REPORT ──
+function toggleStory() {
+  var panel  = document.getElementById('storyPanel');
+  var btnTxt = document.getElementById('storyBtnText');
+
+  if (panel.style.display === 'none') {
+    panel.style.display = 'block';
+    btnTxt.textContent  = '✕ Close Story Report';
+    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } else {
+    panel.style.display = 'none';
+    btnTxt.textContent  = '📖 Read the Full Story Report';
+    document.getElementById('communicationCard').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}
