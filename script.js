@@ -184,3 +184,57 @@ function toggleStory() {
     document.getElementById('communicationCard').scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 }
+// ── FLEXIBILITY SELF-ASSESSMENT ──
+const questions = [
+  { q: "I usually make a daily or weekly plan", points: [5, 3, 1] },
+  { q: "I prioritise important tasks before easy ones", points: [5, 3, 1] },
+  { q: "I have clear deadlines and stick to them", points: [5, 3, 1] },
+  { q: "I use my most productive hours for deep work", points: [5, 3, 1] },
+  { q: "I take short breaks and protect my work-life balance", points: [5, 3, 1] },
+  { q: "I adjust my schedule when unexpected things come up", points: [5, 3, 1] },
+  { q: "I feel in control of my time most days", points: [5, 3, 1] },
+  { q: "I review what worked and what didn’t at the end of the day", points: [5, 3, 1] }
+];
+
+let answers = [];
+
+function loadQuiz() {
+  const container = document.getElementById('quizContainer');
+  container.innerHTML = questions.map((item, i) => `
+    <div style="margin-bottom:18px;">
+      <p style="font-weight:600; margin-bottom:8px;">${i+1}. ${item.q}</p>
+      <label><input type="radio" name="q${i}" value="5" onclick="answers[${i}]=5"> Always</label><br>
+      <label><input type="radio" name="q${i}" value="3" onclick="answers[${i}]=3"> Sometimes</label><br>
+      <label><input type="radio" name="q${i}" value="1" onclick="answers[${i}]=1"> Rarely</label>
+    </div>
+  `).join('');
+  document.getElementById('submitBtn').style.display = 'block';
+}
+
+function calculateScore() {
+  let score = answers.reduce((a, b) => a + (b || 0), 0);
+  const max = 40;
+  const percentage = Math.round((score / max) * 100);
+
+  let advice = '';
+  if (percentage >= 80) advice = `<strong>Excellent!</strong> You already manage flexibility like the top performers in the survey. Keep using Planning &amp; Scheduling.`;
+  else if (percentage >= 60) advice = `<strong>Good job!</strong> Try adding <strong>Block Time</strong> or a simple daily planner (see tool below).`;
+  else advice = `<strong>Opportunity to grow.</strong> Start with the <strong>Daily Flexibility Planner</strong> below — this is what 39% of Bhutanese workers use successfully.`;
+
+  const resultHTML = `
+    <div style="text-align:center; padding:30px; background:#f9f5ef; border-radius:12px;">
+      <h2 style="color:var(--orange); font-size:42px; margin:0;">${percentage}%</h2>
+      <p style="margin:10px 0 20px; font-size:18px;">Your Flexibility Mastery Score</p>
+      <p>${advice}</p>
+      <button onclick="loadQuiz(); answers=[]; this.parentElement.parentElement.innerHTML=''" style="margin-top:20px; padding:10px 20px; background:var(--dark); color:white; border:none; border-radius:6px;">Retake Quiz</button>
+    </div>
+  `;
+
+  document.getElementById('quizContainer').innerHTML = resultHTML;
+  document.getElementById('submitBtn').style.display = 'none';
+}
+
+// Auto-load quiz when page loads
+window.addEventListener('load', () => {
+  if (document.getElementById('quizContainer')) loadQuiz();
+});
