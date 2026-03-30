@@ -238,3 +238,20 @@ function calculateScore() {
 window.addEventListener('load', () => {
   if (document.getElementById('quizContainer')) loadQuiz();
 });
+// ── TOGGLE PRACTICAL TOOLS SECTION ──
+function togglePracticalTools() {
+  const toolsSection = document.getElementById('practicalToolsSection');
+  const title = document.getElementById('practicalToolsTitle');
+  const arrow = document.getElementById('practicalToolsArrow');
+
+  if (!toolsSection) return;
+
+  if (toolsSection.style.display === 'none' || toolsSection.style.display === '') {
+    toolsSection.style.display = 'block';
+    if (arrow) arrow.textContent = '▲';
+    if (title) title.style.opacity = '1';
+  } else {
+    toolsSection.style.display = 'none';
+    if (arrow) arrow.textContent = '▼';
+  }
+}
