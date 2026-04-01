@@ -255,3 +255,27 @@ function togglePracticalTools() {
     if (arrow) arrow.textContent = '▼';
   }
 }
+// ── SAVE DAILY PLANNER ──
+function savePlanner() {
+  const priorities = document.getElementById('priorities').value;
+  const block1 = document.getElementById('block1').value;
+  const task1 = document.getElementById('task1').value;
+  
+  if (priorities.trim() === '') {
+    alert("Please write at least your top priorities.");
+    return;
+  }
+
+  // In real version you could save to localStorage
+  localStorage.setItem('dailyPlan', JSON.stringify({
+    date: new Date().toLocaleDateString(),
+    priorities: priorities,
+    blocks: [block1 + " → " + task1]
+  }));
+
+  document.getElementById('plannerSaved').style.display = 'block';
+  
+  setTimeout(() => {
+    document.getElementById('plannerSaved').style.display = 'none';
+  }, 4000);
+}

@@ -571,41 +571,95 @@
 <section>
   <div class="section-title" onclick="togglePracticalTools()" 
        style="cursor:pointer; user-select:none; display:flex; align-items:center; justify-content:space-between;">
-    🛠️ Practical Tools for You
+    🛠️ Practical Tools for Bhutanese Workers
     <span id="practicalToolsArrow" style="font-size:18px; transition:0.3s;">▼</span>
   </div>
   
-  <p class="data-intro" style="margin-bottom:30px;">Based on real responses from 49 Bhutanese workers. Try them now!</p>
+  <p class="data-intro" style="margin-bottom:30px;">
+    Based on what actually worked for the 49 respondents in your survey. These tools will help you use flexibility wisely and stay productive.
+  </p>
 
   <!-- Collapsible Content -->
   <div id="practicalToolsSection" style="display:none;">
-    <div class="goal" style="background:white; padding:30px; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
-      <h3 style="font-size:22px; margin-bottom:20px;">📋 My Flexibility Score – Self-Assessment</h3>
+
+    <!-- Tool 1: Daily Flexibility Planner -->
+    <div class="goal" style="margin-bottom:30px; background:white; padding:30px; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+      <h3 style="font-size:22px; margin-bottom:18px; color:var(--dark);">📅 1. Daily Flexibility Planner</h3>
+      <p style="color:var(--mid); margin-bottom:20px;">Most successful respondents (39%) used Planning &amp; Scheduling. Use this simple planner every morning.</p>
+      
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:20px;">
+        <div>
+          <label style="font-weight:600; display:block; margin-bottom:8px;">My Top 3 Priorities Today:</label>
+          <textarea id="priorities" rows="3" style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px; font-size:14px;" placeholder="1. Complete project report&#10;2. Reply to client emails&#10;3. Prepare lesson for tomorrow"></textarea>
+        </div>
+        <div>
+          <label style="font-weight:600; display:block; margin-bottom:8px;">Block Time Schedule:</label>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; font-size:14px;">
+            <input type="text" id="block1" placeholder="9:00 - 11:00" style="padding:10px; border:1px solid #ddd; border-radius:6px;">
+            <input type="text" id="task1" placeholder="Deep Work" style="padding:10px; border:1px solid #ddd; border-radius:6px;">
+            
+            <input type="text" id="block2" placeholder="11:30 - 13:00" style="padding:10px; border:1px solid #ddd; border-radius:6px;">
+            <input type="text" id="task2" placeholder="Meetings &amp; Communication" style="padding:10px; border:1px solid #ddd; border-radius:6px;">
+            
+            <input type="text" id="block3" placeholder="14:00 - 15:30" style="padding:10px; border:1px solid #ddd; border-radius:6px;">
+            <input type="text" id="task3" placeholder="Creative / Important Tasks" style="padding:10px; border:1px solid #ddd; border-radius:6px;">
+          </div>
+        </div>
+      </div>
+      
+      <button onclick="savePlanner()" 
+              style="margin-top:25px; padding:12px 24px; background:var(--orange); color:white; border:none; border-radius:8px; font-size:15px; cursor:pointer;">
+        Save Today's Plan
+      </button>
+      <p id="plannerSaved" style="margin-top:12px; color:#2e7d32; font-size:14px; display:none;">✅ Plan saved! Come back tomorrow and adjust as needed.</p>
+    </div>
+
+    <!-- Tool 2: Flexibility Self-Assessment (your existing quiz - improved) -->
+    <div class="goal" style="margin-bottom:30px; background:white; padding:30px; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+      <h3 style="font-size:22px; margin-bottom:20px;">📋 2. My Flexibility Mastery Score</h3>
+      <p style="color:var(--mid); margin-bottom:25px;">Answer honestly. This quiz is based on habits used by high-performing respondents in the survey.</p>
       
       <div id="quizContainer">
-        <!-- Questions will be injected by JS -->
+        <!-- Questions injected by JS -->
       </div>
 
-      <button onclick="calculateScore()" id="submitBtn" style="display:none; width:100%; padding:14px; background:var(--orange); color:white; border:none; border-radius:8px; font-size:16px; margin-top:20px;">
-        Get My Score &amp; Advice
+      <button onclick="calculateScore()" id="submitBtn" 
+              style="display:none; width:100%; padding:14px; background:var(--orange); color:white; border:none; border-radius:8px; font-size:16px; margin-top:20px;">
+        Get My Score &amp; Personalized Advice
       </button>
     </div>
-  </div>
-</section>
-  <p class="data-intro" style="margin-bottom:30px;">Based on real responses from 49 Bhutanese workers. Try them now!</p>
 
-  <div class="goal" style="background:white; padding:30px; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
-    <h3 style="font-size:22px; margin-bottom:20px;">📋 My Flexibility Score – Self-Assessment</h3>
-    
-    <div id="quizContainer">
-      <!-- Questions will be injected by JS -->
+    <!-- Tool 3: Productivity Rules for Flexible Work -->
+    <div class="goal" style="background:white; padding:30px; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+      <h3 style="font-size:22px; margin-bottom:18px;">⚡ 3. 7 Rules for Productive Flexible Work</h3>
+      <p style="color:var(--mid); margin-bottom:20px;">Simple rules taken from what actually worked in your Bhutan survey:</p>
+      
+      <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:14px;">
+        <li style="padding:14px 18px; background:#f9f5ef; border-left:5px solid var(--orange); border-radius:8px;">
+          <strong>1. Start your day with a 5-minute plan</strong><br>
+          <small>Write your top 3 tasks before checking messages.</small>
+        </li>
+        <li style="padding:14px 18px; background:#f9f5ef; border-left:5px solid var(--orange); border-radius:8px;">
+          <strong>2. Use "Block Time" for deep work</strong><br>
+          <small>Protect 2–3 hours every day with no meetings or notifications.</small>
+        </li>
+        <li style="padding:14px 18px; background:#f9f5ef; border-left:5px solid var(--orange); border-radius:8px;">
+          <strong>3. Prioritize by deadline + importance</strong><br>
+          <small>Do the hardest or most important task first (many respondents did this).</small>
+        </li>
+        <li style="padding:14px 18px; background:#f9f5ef; border-left:5px solid var(--orange); border-radius:8px;">
+          <strong>4. Set clear "end of work" time</strong><br>
+          <small>Even with flexibility, decide when you will stop to protect family &amp; rest time.</small>
+        </li>
+        <li style="padding:14px 18px; background:#f9f5ef; border-left:5px solid var(--orange); border-radius:8px;">
+          <strong>5. Review your day every evening (2 minutes)</strong><br>
+          <small>What worked? What to improve tomorrow?</small>
+        </li>
+      </ul>
     </div>
 
-    <button onclick="calculateScore()" id="submitBtn" style="display:none; width:100%; padding:14px; background:var(--orange); color:white; border:none; border-radius:8px; font-size:16px; margin-top:20px;">
-      Get My Score &amp; Advice
-    </button>
   </div>
-</div>
+</section>
   <!-- FOOTER -->
   <footer>
     <strong>Time &amp; Flexibility in Remote Work in Bhutan</strong><br>
