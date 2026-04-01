@@ -279,3 +279,18 @@ function savePlanner() {
     document.getElementById('plannerSaved').style.display = 'none';
   }, 4000);
 }
+// ── TOGGLE TABLEAU STORY ──
+function toggleTableauStory() {
+  const container = document.getElementById('tableauContainer');
+  const button = document.getElementById('tableauBtn');
+
+  if (container.style.display === 'none') {
+    container.style.display = 'block';
+    button.textContent = '✕ Close Interactive Tableau Story';
+    button.style.background = '#1a1a2e';   // darker color when open
+  } else {
+    container.style.display = 'none';
+    button.textContent = '📊 Open Interactive Tableau Story';
+    button.style.background = 'var(--orange)';
+  }
+}

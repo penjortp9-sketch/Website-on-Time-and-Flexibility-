@@ -170,10 +170,21 @@
   </button>
 </div>
       <div class="goal">
-        <div class="goal-icon">🔍</div>
-        <h3>Analytical</h3>
-        <p>Extract insights from raw data and survey responses, and discover the causes behind trends.</p>
-      </div>
+  <div class="goal-icon">🔍</div>
+  <h3>Analytical</h3>
+  <p>Extract insights from raw data and survey responses, and discover the causes behind trends.</p>
+
+  <!-- Clean Button that opens Tableau Story in new tab -->
+  <a href="https://public.tableau.com/views/buildcore1/Story1" 
+     target="_blank" 
+     style="display: block; margin-top: 20px; padding: 14px 24px; background: var(--orange); color: white; text-align: center; border-radius: 8px; font-size: 15px; text-decoration: none; font-weight: 600;">
+    📊 View Interactive Tableau Story
+  </a>
+
+  <small style="color: #888; display: block; margin-top: 12px; text-align: center;">
+    Opens in a new tab • Full interactive dashboard with filters and charts
+  </small>
+</div>
   <div class="goal" id="communicationCard">
     <div class="goal-icon">💬</div>
     <h3>Communication</h3>
@@ -660,11 +671,14 @@
 
   </div>
 </section>
-  <!-- FOOTER -->
+   <!-- FOOTER -->
   <footer>
     <strong>Time &amp; Flexibility in Remote Work in Bhutan</strong><br>
     Intern Research Project &middot; 2025
   </footer>
+
+  <!-- === TABLEAU EMBEDDING LIBRARY (Required for interactive charts) === -->
+  <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
 
   <script src="script.js"></script>
 </body>
